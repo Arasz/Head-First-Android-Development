@@ -7,6 +7,7 @@
     <string name="open_drawer">Open drawer</string>
     <string name="close_drawer">Close drawer</string>
     <string name="no_img">No image available</string>
+    <string name="detail_title">Details</string>
 
     <string-array name="pizzas">
         <item>Diavolo</item>

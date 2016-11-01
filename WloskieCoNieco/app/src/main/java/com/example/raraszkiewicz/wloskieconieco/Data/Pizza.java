@@ -7,7 +7,7 @@ import com.example.raraszkiewicz.wloskieconieco.R;
  * Pizza entity representation
  */
 
-public class Pizza {
+public class Pizza implements NamedImage {
 
     private String name;
 

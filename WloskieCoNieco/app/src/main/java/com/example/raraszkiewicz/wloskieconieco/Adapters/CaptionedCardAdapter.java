@@ -11,22 +11,35 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.raraszkiewicz.wloskieconieco.Data.Pizza;
+import com.example.raraszkiewicz.wloskieconieco.Data.NamedImage;
 import com.example.raraszkiewicz.wloskieconieco.R;
+
+import java.util.HashSet;
 
 /**
  * Created by Rafal on 01.11.2016.
  */
 
-public class CaptionedCardAdapter extends RecyclerView.Adapter<CaptionedCardViewHolder> {
+public class CaptionedCardAdapter extends RecyclerView.Adapter<CaptionedCardViewHolder>
+{
+    private NamedImage[] namedImages;
 
-
-    private Pizza[] pizzaData;
-
-    public CaptionedCardAdapter(Pizza[] pizzaData)
+    public CaptionedCardAdapter(NamedImage[] namedImages)
     {
-        this.pizzaData = pizzaData;
+        this.namedImages = namedImages;
     }
+
+	private Listener listener;
+
+	public void setListener(Listener listener)
+	{
+		this.listener = listener;
+	}
+
+
+	public interface Listener{
+		void onClick(int position);
+	}
 
     @Override
     public CaptionedCardViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -37,7 +50,7 @@ public class CaptionedCardAdapter extends RecyclerView.Adapter<CaptionedCardView
     }
 
     @Override
-    public void onBindViewHolder(CaptionedCardViewHolder holder, int position)
+    public void onBindViewHolder(CaptionedCardViewHolder holder, final int position)
     {
         CardView bindedCardView = holder.getCardView();
         
@@ -45,10 +58,20 @@ public class CaptionedCardAdapter extends RecyclerView.Adapter<CaptionedCardView
         TextView textView = (TextView) bindedCardView.findViewById(R.id.info_text);
 
         imageView.setImageDrawable(getImage(bindedCardView.getContext(),
-                pizzaData[position].getImageId()));
-        imageView.setContentDescription(pizzaData[position].getName());
+                namedImages[position].getImageId()));
+        imageView.setContentDescription(namedImages[position].getName());
 
-        textView.setText(pizzaData[position].getName());
+        textView.setText(namedImages[position].getName());
+
+        bindedCardView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+				if(listener != null)
+					listener.onClick(position);
+            }
+        });
     }
 
     private Drawable getImage(Context context, int id)
@@ -59,6 +82,6 @@ public class CaptionedCardAdapter extends RecyclerView.Adapter<CaptionedCardView
     @Override
     public int getItemCount()
     {
-        return pizzaData.length;
+        return namedImages.length;
     }
 }
