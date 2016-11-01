@@ -17,6 +17,7 @@ import android.widget.ListView;
 
 import com.example.raraszkiewicz.wloskieconieco.Fragments.PastaFragment;
 import com.example.raraszkiewicz.wloskieconieco.Fragments.PizzaFragment;
+import com.example.raraszkiewicz.wloskieconieco.Fragments.PizzaMaterialFragment;
 import com.example.raraszkiewicz.wloskieconieco.Fragments.StoresFragment;
 import com.example.raraszkiewicz.wloskieconieco.Fragments.TopFragment;
 import com.example.raraszkiewicz.wloskieconieco.R;
@@ -51,7 +52,7 @@ public class MainActivity extends Activity {
         int categoryPosition = 0;
         if(visibleFragment instanceof PastaFragment)
             categoryPosition = 2;
-        if(visibleFragment instanceof PizzaFragment)
+        if(visibleFragment instanceof PizzaMaterialFragment)
             categoryPosition = 1;
         if(visibleFragment instanceof StoresFragment)
             categoryPosition = 3;
@@ -220,7 +221,7 @@ public class MainActivity extends Activity {
         categories = getResources().getStringArray(R.array.titles);
         categoriesDictionary = new Hashtable<>();
         categoriesDictionary.put(categories[0], TopFragment.class);
-        categoriesDictionary.put(categories[1], PizzaFragment.class);
+        categoriesDictionary.put(categories[1], PizzaMaterialFragment.class);
         categoriesDictionary.put(categories[2], PastaFragment.class);
         categoriesDictionary.put(categories[3], StoresFragment.class);
     }
