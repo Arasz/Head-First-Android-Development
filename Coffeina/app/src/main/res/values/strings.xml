@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">Coffeina</string>
-    <string name="starbuzz_logo">Kafateria Coffein, logo</string>
-    <string-array name="categories">
-        <item>Napoje</item>
-        <item>Przekąski</item>
-        <item>Kafeterie</item>
-    </string-array>
-</resources>
