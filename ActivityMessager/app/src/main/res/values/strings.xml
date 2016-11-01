@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Listonosz</string>
+    <string name="send_button">Wyślij wiadomość</string>
+    <string name="default_message">Wpisz wiadomość</string>
+    <string name="message_name">message</string>
+    <string name="activity_chooser">Wybierz aplikację do wysłania wiadomości</string>
+</resources>
